@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 onready var scene_changer = get_node("/root/SceneChanger")
 
@@ -36,3 +36,5 @@ func move_along_path(distance):
 	# the character reached the end of the path
 	global_position = last_point
 	emit_signal("has_arrived")
+
+func get_class(): return "Player"

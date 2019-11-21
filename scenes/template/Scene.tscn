@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/template/Scene.gd" type="Script" id=1]
-[ext_resource path="res://scenes/pub.jpg" type="Texture" id=2]
+[ext_resource path="res://scenes/template/scene.jpg" type="Texture" id=2]
 [ext_resource path="res://nodes/points/Point.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Exit.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Navigation2D.gd" type="Script" id=5]
@@ -10,8 +10,14 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 86.855
 
+[sub_resource type="CircleShape2D" id=2]
+radius = 56.4485
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 74.2512
+
 [sub_resource type="CircleShape2D" id=4]
-radius = 130.0
+radius = 120.966
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 24.5532
@@ -20,20 +26,12 @@ height = 98.9905
 [sub_resource type="RectangleShape2D" id=6]
 
 [sub_resource type="NavigationPolygon" id=7]
-vertices = PoolVector2Array( 390, 890, 270, 880, 320, 850, 450, 860, 470, 880, 1060, 930, 370, 930, 680, 900, 1020, 840, 1080, 920, 950, 900, 960, 840, 600, 840, 680, 840, 560, 880 )
-polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 6, 0, 7 ), PoolIntArray( 8, 9, 5, 10, 11 ), PoolIntArray( 12, 13, 7, 14 ), PoolIntArray( 7, 10, 5 ), PoolIntArray( 14, 7, 0, 4 ) ]
-outlines = [ PoolVector2Array( 320, 850, 450, 860, 470, 880, 560, 880, 600, 840, 680, 840, 680, 900, 950, 900, 960, 840, 1020, 840, 1080, 920, 1060, 930, 370, 930, 390, 890, 270, 880 ) ]
+vertices = PoolVector2Array( 1304.73, 781.736, 1345.54, 800.782, 1295.21, 817.106, 983.685, 867.44, 435.454, 861.998, 503.473, 798.061, 834.044, 819.827, 976.883, 821.187, 1365.95, 713.718, 1401.32, 739.565, 1262.56, 755.889, 957.838, 487.895, 1100.68, 350.498, 1114.28, 366.822, 968.721, 508.301, 931.991, 493.337, 1130.61, 696.033, 1148.29, 679.708, 1009.53, 886.485, 1280.25, 856.557, 1174.14, 671.546 )
+polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 3, 4, 5, 6 ), PoolIntArray( 3, 6, 7 ), PoolIntArray( 8, 9, 0, 10 ), PoolIntArray( 11, 12, 13, 14 ), PoolIntArray( 15, 11, 14 ), PoolIntArray( 16, 15, 14, 17 ), PoolIntArray( 18, 10, 0, 2, 19 ), PoolIntArray( 17, 20, 10, 18, 16 ), PoolIntArray( 7, 16, 18, 3 ) ]
+outlines = [ PoolVector2Array( 435.454, 861.998, 503.473, 798.061, 834.044, 819.827, 976.883, 821.187, 1130.61, 696.033, 931.991, 493.337, 957.838, 487.895, 1100.68, 350.498, 1114.28, 366.822, 968.721, 508.301, 1148.29, 679.708, 1174.14, 671.546, 1262.56, 755.889, 1365.95, 713.718, 1401.32, 739.565, 1304.73, 781.736, 1345.54, 800.782, 1295.21, 817.106, 1280.25, 856.557, 1009.53, 886.485, 983.685, 867.44 ) ]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
-
-[node name="background" type="ColorRect" parent="."]
-margin_right = 1930.0
-margin_bottom = 1080.0
-color = Color( 0.0352941, 0.0352941, 0.0352941, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="scene" type="Sprite" parent="."]
 position = Vector2( 968.375, 545 )
@@ -44,13 +42,18 @@ __meta__ = {
 }
 
 [node name="Points" type="Node2D" parent="."]
+editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Point0" parent="Points" instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 565.897, 831.428 )
+
 [node name="Point1" parent="Points" instance=ExtResource( 3 )]
 editor/display_folded = true
-position = Vector2( 490, 890 )
+position = Vector2( 807.207, 832.363 )
 
 [node name="CollisionShape2D" parent="Points/Point1" index="0"]
 position = Vector2( -3.1579, -37.8947 )
@@ -58,18 +61,34 @@ shape = SubResource( 1 )
 
 [node name="Point2" parent="Points" instance=ExtResource( 3 )]
 editor/display_folded = true
-position = Vector2( 670, 852.105 )
+position = Vector2( 1015.63, 868.152 )
 
 [node name="CollisionShape2D" parent="Points/Point2" index="0"]
 position = Vector2( -3.1579, -37.8947 )
 shape = SubResource( 1 )
 
+[node name="Point3" parent="Points" instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 1267.21, 767.1 )
+
+[node name="CollisionShape2D" parent="Points/Point3" index="0"]
+position = Vector2( -26.0002, 25.0666 )
+shape = SubResource( 2 )
+
+[node name="Point4" parent="Points" instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( 1164.05, 691.31 )
+
+[node name="CollisionShape2D" parent="Points/Point4" index="0"]
+position = Vector2( -15.7895, -5.26306 )
+shape = SubResource( 3 )
+
 [node name="Point5" parent="Points" instance=ExtResource( 3 )]
 editor/display_folded = true
-position = Vector2( 990, 860 )
+position = Vector2( 1059.84, 394.468 )
 
 [node name="CollisionShape2D" parent="Points/Point5" index="0"]
-position = Vector2( -60, -20 )
+position = Vector2( -57.8948, 40.0001 )
 shape = SubResource( 4 )
 
 [node name="Exits" type="Node2D" parent="."]
@@ -106,5 +125,9 @@ speed = 300
 [editable path="Points/Point1"]
 
 [editable path="Points/Point2"]
+
+[editable path="Points/Point3"]
+
+[editable path="Points/Point4"]
 
 [editable path="Points/Point5"]
