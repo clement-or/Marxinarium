@@ -12,8 +12,9 @@ func _ready():
 	connected_point = get_node(connected_point)
 
 func _on_Exit_input_event(viewport, event, shape_idx):
-	$Teleport/CollisionShape2D.disabled = false
-	emit_signal("clicked", event, self)
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.is_pressed():
+		$Teleport/CollisionShape2D.disabled = false
+		emit_signal("clicked", event, self)
 
 func _on_Teleport_area_entered(area):
 	if area.get_class() == "Player":

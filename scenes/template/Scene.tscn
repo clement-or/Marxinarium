@@ -24,9 +24,9 @@ radius = 29.6111
 height = 111.148
 
 [sub_resource type="NavigationPolygon" id=7]
-vertices = PoolVector2Array( 1304.73, 781.736, 1345.54, 800.782, 1295.21, 817.106, 983.685, 867.44, 435.454, 861.998, 503.473, 798.061, 834.044, 819.827, 976.883, 821.187, 1365.95, 713.718, 1401.32, 739.565, 1262.56, 755.889, 957.838, 487.895, 1100.68, 350.498, 1114.28, 366.822, 968.721, 508.301, 931.991, 493.337, 1130.61, 696.033, 1148.29, 679.708, 1009.53, 886.485, 1280.25, 856.557, 1174.14, 671.546 )
-polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 3, 4, 5, 6 ), PoolIntArray( 3, 6, 7 ), PoolIntArray( 8, 9, 0, 10 ), PoolIntArray( 11, 12, 13, 14 ), PoolIntArray( 15, 11, 14 ), PoolIntArray( 16, 15, 14, 17 ), PoolIntArray( 18, 10, 0, 2, 19 ), PoolIntArray( 17, 20, 10, 18, 16 ), PoolIntArray( 7, 16, 18, 3 ) ]
-outlines = [ PoolVector2Array( 435.454, 861.998, 503.473, 798.061, 834.044, 819.827, 976.883, 821.187, 1130.61, 696.033, 931.991, 493.337, 957.838, 487.895, 1100.68, 350.498, 1114.28, 366.822, 968.721, 508.301, 1148.29, 679.708, 1174.14, 671.546, 1262.56, 755.889, 1365.95, 713.718, 1401.32, 739.565, 1304.73, 781.736, 1345.54, 800.782, 1295.21, 817.106, 1280.25, 856.557, 1009.53, 886.485, 983.685, 867.44 ) ]
+vertices = PoolVector2Array( 1304.73, 781.736, 1345.54, 800.782, 1295.21, 817.106, 983.685, 867.44, 435.454, 861.998, 503.473, 798.061, 832.5, 801.65, 948.4, 789.3, 1365.95, 713.718, 1401.32, 739.565, 1262.56, 755.889, 957.838, 487.895, 1100.68, 350.498, 1114.28, 366.822, 968.721, 508.301, 1280.25, 856.557, 1009.53, 886.485, 1026.3, 731.35, 1130.61, 696.033, 931.991, 493.337, 1148.29, 679.708, 1174.14, 671.546 )
+polygons = [ PoolIntArray( 0, 1, 2 ), PoolIntArray( 3, 4, 5, 6 ), PoolIntArray( 3, 6, 7 ), PoolIntArray( 8, 9, 0, 10 ), PoolIntArray( 11, 12, 13, 14 ), PoolIntArray( 2, 15, 16, 3, 7, 17, 18, 10, 0 ), PoolIntArray( 19, 11, 14 ), PoolIntArray( 18, 19, 14, 20 ), PoolIntArray( 21, 10, 18, 20 ) ]
+outlines = [ PoolVector2Array( 435.454, 861.998, 503.473, 798.061, 832.5, 801.65, 948.4, 789.3, 1026.3, 731.35, 1130.61, 696.033, 931.991, 493.337, 957.838, 487.895, 1100.68, 350.498, 1114.28, 366.822, 968.721, 508.301, 1148.29, 679.708, 1174.14, 671.546, 1262.56, 755.889, 1365.95, 713.718, 1401.32, 739.565, 1304.73, 781.736, 1345.54, 800.782, 1295.21, 817.106, 1280.25, 856.557, 1009.53, 886.485, 983.685, 867.44 ) ]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -61,7 +61,7 @@ position = Vector2( -3.1579, -37.8947 )
 shape = SubResource( 1 )
 
 [node name="Point3" parent="Points" instance=ExtResource( 3 )]
-position = Vector2( 1243.99, 784.349 )
+position = Vector2( 1234.49, 777.699 )
 
 [node name="CollisionShape2D" parent="Points/Point3" index="0"]
 position = Vector2( -14.722, 19.7592 )
@@ -86,10 +86,9 @@ shape = SubResource( 4 )
 [node name="Exits" type="Node2D" parent="."]
 
 [node name="Exit" parent="Exits" instance=ExtResource( 4 )]
-editor/display_folded = true
-position = Vector2( 1370.18, 734.354 )
+position = Vector2( 1370.69, 743.594 )
 destination_scene = "res://scenes/Scene2.tscn"
-connected_point = NodePath("../../Points/Point3")
+connected_point = NodePath("../../Points/Point4")
 
 [node name="CollisionShape2D" parent="Exits/Exit" index="0"]
 position = Vector2( -69.1761, -52.2295 )

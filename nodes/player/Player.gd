@@ -11,6 +11,7 @@ var controls_enabled = true
 var path
 
 func _ready():
+	update()
 	assert(points)
 	points = get_node(points)
 	
