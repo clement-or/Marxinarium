@@ -1,12 +1,17 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scene.gd" type="Script" id=1]
-[ext_resource path="res://pub.jpg" type="Texture" id=2]
-[ext_resource path="res://Exit.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scene.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Point.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Navigation2D.gd" type="Script" id=6]
-[ext_resource path="res://Josef.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Scene.gd" type="Script" id=1]
+[ext_resource path="res://scenes/pub.jpg" type="Texture" id=2]
+[ext_resource path="res://nodes/points/Exit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Scene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://nodes/points/Point.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Navigation2D.gd" type="Script" id=6]
+[ext_resource path="res://nodes/josef/Josef.tscn" type="PackedScene" id=7]
+
+
+
+
+
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 86.855

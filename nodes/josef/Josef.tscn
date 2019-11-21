@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Josef.gd" type="Script" id=1]
-[ext_resource path="res://josef.png" type="Texture" id=2]
+[ext_resource path="res://nodes/josef/Josef.gd" type="Script" id=1]
+[ext_resource path="res://nodes/josef/josef.png" type="Texture" id=2]
+
 
 [node name="Josef" type="Node2D"]
 position = Vector2( 71.8178, 688.115 )

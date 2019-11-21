@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scene.gd" type="Script" id=1]
-[ext_resource path="res://scene.jpg" type="Texture" id=2]
-[ext_resource path="res://Point.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Navigation2D.gd" type="Script" id=4]
-[ext_resource path="res://Josef.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Exit.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Scene.gd" type="Script" id=1]
+[ext_resource path="res://scenes/scene.jpg" type="Texture" id=2]
+[ext_resource path="res://nodes/points/Point.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Navigation2D.gd" type="Script" id=4]
+[ext_resource path="res://nodes/josef/Josef.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 86.855
@@ -23,10 +22,6 @@ radius = 120.966
 vertices = PoolVector2Array( 1352.27, 730.53, 1394.96, 751.063, 1311.28, 766.283, 1275, 749.983, 1362.76, 803.583, 1304.6, 807.46, 987.974, 861.739, 416.96, 883.374, 449.589, 850.606, 495.587, 806.167, 856.154, 817.799, 889.441, 995.715, 859.433, 995.715, 1012.53, 886.293, 239.827, 821.012, 260.393, 797.129, 1010.73, 804.252, 934.988, 481.786, 1235.55, 181.85, 1268.8, 196.1, 978.928, 505.049, 938.865, 506.341, 1124.96, 696.317, 1139.18, 678.224, 1184.41, 674.347, 1281.34, 833.307, 1184.41, 851.4, 1066.57, 764.156, 1096.65, 726.925, 1144.35, 872.077 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 2, 4, 5, 3 ), PoolIntArray( 6, 7, 8, 9, 10 ), PoolIntArray( 11, 12, 6, 13 ), PoolIntArray( 8, 14, 15, 9 ), PoolIntArray( 6, 10, 16 ), PoolIntArray( 17, 18, 19, 20, 21 ), PoolIntArray( 22, 21, 20, 23 ), PoolIntArray( 23, 24, 3, 5, 25, 26, 22 ), PoolIntArray( 27, 28, 22, 26, 29, 13 ), PoolIntArray( 16, 27, 13, 6 ) ]
 outlines = [ PoolVector2Array( 416.96, 883.374, 449.589, 850.606, 239.827, 821.012, 260.393, 797.129, 495.587, 806.167, 856.154, 817.799, 1010.73, 804.252, 1066.57, 764.156, 1096.65, 726.925, 1124.96, 696.317, 938.865, 506.341, 934.988, 481.786, 1235.55, 181.85, 1268.8, 196.1, 978.928, 505.049, 1139.18, 678.224, 1184.41, 674.347, 1275, 749.983, 1352.27, 730.53, 1394.96, 751.063, 1311.28, 766.283, 1362.76, 803.583, 1304.6, 807.46, 1281.34, 833.307, 1184.41, 851.4, 1144.35, 872.077, 1012.53, 886.293, 889.441, 995.715, 859.433, 995.715, 987.974, 861.739 ) ]
-
-[sub_resource type="CapsuleShape2D" id=6]
-radius = 20.0854
-height = 104.342
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -101,18 +96,6 @@ navpoly = SubResource( 5 )
 [node name="Josef" parent="Navigation2D" instance=ExtResource( 5 )]
 speed = 300
 
-[node name="Exit" type="Node2D" parent="."]
-
-[node name="Point" parent="Exit" instance=ExtResource( 6 )]
-position = Vector2( 1363.85, 743.369 )
-next_scene = "res://Scene2.tscn"
-next_point = NodePath("../../Points/Point3")
-
-[node name="CollisionShape2D" parent="Exit/Point" index="0"]
-position = Vector2( -63.7727, -61.1312 )
-shape = SubResource( 6 )
-[connection signal="has_arrived" from="Navigation2D/Josef" to="." method="_on_Josef_has_arrived"]
-
 [editable path="Points/Point1"]
 
 [editable path="Points/Point2"]
@@ -122,5 +105,3 @@ shape = SubResource( 6 )
 [editable path="Points/Point4"]
 
 [editable path="Points/Point5"]
-
-[editable path="Exit/Point"]
