@@ -7,6 +7,7 @@ export(int) var speed = 100
 
 signal has_arrived
 
+var controls_enabled = true
 var path
 
 func _ready():
@@ -21,6 +22,7 @@ func _process(delta):
 
 func move_along_path(distance):
 	var last_point = global_position
+	controls_enabled = false
 	while path.size():
 		var distance_between_points = last_point.distance_to(path[0])
 		
@@ -35,6 +37,7 @@ func move_along_path(distance):
 		path.remove(0)
 	# the character reached the end of the path
 	global_position = last_point
+	controls_enabled = true
 	emit_signal("has_arrived")
 
 func get_class(): return "Player"

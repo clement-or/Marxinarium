@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/template/Scene.gd" type="Script" id=1]
 [ext_resource path="res://scenes/template/scene.jpg" type="Texture" id=2]
 [ext_resource path="res://nodes/points/Point.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Exit.gd" type="Script" id=4]
+[ext_resource path="res://nodes/points/Exit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Navigation2D.gd" type="Script" id=5]
 [ext_resource path="res://nodes/player/Player.tscn" type="PackedScene" id=6]
 
@@ -19,11 +19,9 @@ radius = 74.2512
 [sub_resource type="CircleShape2D" id=4]
 radius = 120.966
 
-[sub_resource type="CapsuleShape2D" id=5]
-radius = 24.5532
-height = 98.9905
-
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 29.6111
+height = 111.148
 
 [sub_resource type="NavigationPolygon" id=7]
 vertices = PoolVector2Array( 1304.73, 781.736, 1345.54, 800.782, 1295.21, 817.106, 983.685, 867.44, 435.454, 861.998, 503.473, 798.061, 834.044, 819.827, 976.883, 821.187, 1365.95, 713.718, 1401.32, 739.565, 1262.56, 755.889, 957.838, 487.895, 1100.68, 350.498, 1114.28, 366.822, 968.721, 508.301, 931.991, 493.337, 1130.61, 696.033, 1148.29, 679.708, 1009.53, 886.485, 1280.25, 856.557, 1174.14, 671.546 )
@@ -42,14 +40,9 @@ __meta__ = {
 }
 
 [node name="Points" type="Node2D" parent="."]
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Point0" parent="Points" instance=ExtResource( 3 )]
-editor/display_folded = true
-position = Vector2( 565.897, 831.428 )
 
 [node name="Point1" parent="Points" instance=ExtResource( 3 )]
 editor/display_folded = true
@@ -68,11 +61,10 @@ position = Vector2( -3.1579, -37.8947 )
 shape = SubResource( 1 )
 
 [node name="Point3" parent="Points" instance=ExtResource( 3 )]
-editor/display_folded = true
-position = Vector2( 1267.21, 767.1 )
+position = Vector2( 1243.99, 784.349 )
 
 [node name="CollisionShape2D" parent="Points/Point3" index="0"]
-position = Vector2( -26.0002, 25.0666 )
+position = Vector2( -14.722, 19.7592 )
 shape = SubResource( 2 )
 
 [node name="Point4" parent="Points" instance=ExtResource( 3 )]
@@ -93,19 +85,15 @@ shape = SubResource( 4 )
 
 [node name="Exits" type="Node2D" parent="."]
 
-[node name="Exit" type="Area2D" parent="Exits"]
-position = Vector2( 1362.56, 742.972 )
-script = ExtResource( 4 )
+[node name="Exit" parent="Exits" instance=ExtResource( 4 )]
+editor/display_folded = true
+position = Vector2( 1370.18, 734.354 )
+destination_scene = "res://scenes/Scene2.tscn"
+connected_point = NodePath("../../Points/Point3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit"]
-position = Vector2( -66.7915, -60.3765 )
-shape = SubResource( 5 )
-
-[node name="Teleport" type="Area2D" parent="Exits/Exit"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Exit/Teleport"]
-shape = SubResource( 6 )
-disabled = true
+[node name="CollisionShape2D" parent="Exits/Exit" index="0"]
+position = Vector2( -69.1761, -52.2295 )
+shape = SubResource( 8 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 script = ExtResource( 5 )
@@ -119,8 +107,6 @@ navpoly = SubResource( 7 )
 
 [node name="Player" parent="Navigation2D" instance=ExtResource( 6 )]
 speed = 300
-[connection signal="input_event" from="Exits/Exit" to="Exits/Exit" method="_on_Exit_input_event"]
-[connection signal="area_entered" from="Exits/Exit/Teleport" to="Exits/Exit" method="_on_Teleport_area_entered"]
 
 [editable path="Points/Point1"]
 
@@ -131,3 +117,5 @@ speed = 300
 [editable path="Points/Point4"]
 
 [editable path="Points/Point5"]
+
+[editable path="Exits/Exit"]

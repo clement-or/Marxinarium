@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Exit.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 40.0
+height = 180.0
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[node name="Exit" type="Area2D"]
+script = ExtResource( 1 )
+connected_point = NodePath("../../Points/Point0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Teleport" type="Area2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport"]
+shape = SubResource( 2 )
+disabled = true
+[connection signal="input_event" from="." to="." method="_on_Exit_input_event"]
+[connection signal="area_entered" from="Teleport" to="." method="_on_Teleport_area_entered"]
