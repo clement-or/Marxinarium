@@ -1,6 +1,7 @@
 extends Area2D
 
 onready var scene_changer = get_node("/root/SceneChanger")
+onready var anim = $Skeleton/Anim
 
 export(NodePath) var points
 export(int) var speed = 100
@@ -15,7 +16,9 @@ func _ready():
 	assert(points)
 	points = get_node(points)
 	
+	# Place player on first point
 	global_position = points.get_children()[scene_changer.point_number].global_position
+	anim.play("idle")
 
 func _process(delta):
 	if path:
@@ -25,6 +28,10 @@ func move_along_path(distance):
 	var last_point = global_position
 	controls_enabled = false
 	while path.size():
+		# Play walk animation
+		anim.play("walk")
+		scale.x = abs(scale.x) if path[0].x > global_position.x else -abs(scale.x)
+		
 		var distance_between_points = last_point.distance_to(path[0])
 		
 		# the position to move to falls between two points
@@ -40,5 +47,6 @@ func move_along_path(distance):
 	global_position = last_point
 	controls_enabled = true
 	emit_signal("has_arrived")
+	anim.play("idle")
 
 func get_class(): return "Player"
