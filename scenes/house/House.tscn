@@ -8,19 +8,19 @@
 [ext_resource path="res://scenes/house/Wires.gd" type="Script" id=6]
 [ext_resource path="res://scenes/house/wires/wires.png" type="Texture" id=7]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 161.245
 
-[sub_resource type="NavigationPolygon" id=3]
+[sub_resource type="NavigationPolygon" id=2]
 vertices = PoolVector2Array( 1240, 540, 1810, 580, 1780, 680, 1240, 640 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( 1240, 540, 1810, 580, 1780, 680, 1240, 640 ) ]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 19.9922
 height = 56.1382
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "cover_fall"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Box:position")
@@ -147,7 +147,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "wire1"
 length = 0.1
 tracks/0/type = "value"
@@ -211,7 +211,7 @@ tracks/4/keys = {
 "values": [ 90.4348 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "wire2"
 length = 0.1
 tracks/0/type = "value"
@@ -297,13 +297,13 @@ editor/display_folded = true
 position = Vector2( 1720, 620 )
 
 [node name="CollisionShape2D" parent="Points/Point" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Point2" parent="Points" instance=ExtResource( 3 )]
 position = Vector2( 1390, 590 )
 
 [node name="CollisionShape2D" parent="Points/Point2" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Exits" type="Node2D" parent="."]
 __meta__ = {
@@ -311,7 +311,6 @@ __meta__ = {
 }
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
-editor/display_folded = true
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true,
@@ -319,7 +318,7 @@ __meta__ = {
 }
 
 [node name="Navmesh" type="NavigationPolygonInstance" parent="Navigation2D"]
-navpoly = SubResource( 3 )
+navpoly = SubResource( 2 )
 
 [node name="Player" parent="Navigation2D" instance=ExtResource( 5 )]
 scale = Vector2( 1.5, 1.5 )
@@ -345,7 +344,7 @@ hframes = 3
 frame = 2
 
 [node name="Zone" type="CollisionShape2D" parent="Objects/Wires"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -353,10 +352,10 @@ __meta__ = {
 
 [node name="Anim" type="AnimationPlayer" parent="Objects/Wires"]
 autoplay = "default"
-anims/cover_fall = SubResource( 6 )
+anims/cover_fall = SubResource( 4 )
 anims/default = SubResource( 5 )
-anims/wire1 = SubResource( 7 )
-anims/wire2 = SubResource( 8 )
+anims/wire1 = SubResource( 6 )
+anims/wire2 = SubResource( 7 )
 [connection signal="input_event" from="Objects/Wires" to="Objects/Wires" method="_on_Wires_input_event"]
 [connection signal="animation_finished" from="Objects/Wires/Anim" to="Objects/Wires" method="_on_Anim_animation_finished"]
 
