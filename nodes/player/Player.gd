@@ -2,14 +2,18 @@ extends Area2D
 
 onready var scene_changer = get_node("/root/SceneChanger")
 onready var anim = $Skeleton/Anim
+onready var inventory = $Polygons/Inventory
+onready var inventory_content setget set_inventory_content,get_inventory_content
+onready var attach_point = $Skeleton/Root/ArmR1/ArmR2/ArmR3/ArmR4/HandR/Attach
 
 export(NodePath) var points
-export(int) var speed = 100
+export(int) var speed = 5
 
 signal has_arrived
 
 var controls_enabled = true
 var path
+
 
 func _ready():
 	update()
@@ -21,6 +25,8 @@ func _ready():
 	anim.play("idle")
 
 func _process(delta):
+	inventory.global_position = attach_point.global_position
+	inventory.rotation = attach_point.rotation
 	if path:
 		move_along_path(speed*delta)
 
@@ -48,5 +54,17 @@ func move_along_path(distance):
 	controls_enabled = true
 	emit_signal("has_arrived")
 	anim.play("idle")
+
+
+func get_inventory_content():
+	if inventory.get_children().size() > 0:
+		return inventory.get_child(0)
+	else: return false
+
+func set_inventory_content(content):
+	inventory.add_child(content)
+
+func empty_inventory(): 
+	get_inventory_content().queue_free()
 
 func get_class(): return "Player"

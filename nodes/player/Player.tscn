@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://nodes/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://nodes/player/berta.png" type="Texture" id=2]
@@ -6,9 +6,6 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 25.0
 height = 42.0
-
-[sub_resource type="Animation" id=2]
-resource_name = "remove_cover"
 
 [sub_resource type="Animation" id=3]
 length = 2.0
@@ -348,6 +345,30 @@ tracks/27/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ -8.62913, -8.62913 ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4/HandR/Attach:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3.36106, -0.0195398 ), Vector2( 3.36106, -0.0195398 ), Vector2( 3.36106, -0.0195398 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4/HandR/Attach:rotation_degrees")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -12.9314, -12.9314, -12.9314 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -689,6 +710,30 @@ tracks/27/keys = {
 "update": 0,
 "values": [ -166.244, -162.011, -162.011, -162.011 ]
 }
+tracks/28/type = "value"
+tracks/28/path = NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4/HandR/Attach:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3.36106, -0.0195398 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4/HandR/Attach:rotation_degrees")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -12.9314 ]
+}
 
 [node name="Berta" type="Area2D"]
 script = ExtResource( 1 )
@@ -717,6 +762,9 @@ uv = PoolVector2Array( 777.138, 609.574, 816.5, 630.851, 785.649, 670.745, 769.6
 polygons = [ PoolIntArray( 14, 15, 16, 17 ), PoolIntArray( 17, 16, 19, 18 ), PoolIntArray( 19, 20, 21, 18 ), PoolIntArray( 21, 20, 22, 23 ), PoolIntArray( 2, 15, 14, 13, 0, 1 ), PoolIntArray( 15, 16, 3, 2 ), PoolIntArray( 14, 13, 12, 17 ), PoolIntArray( 12, 11, 18, 17 ), PoolIntArray( 3, 16, 19, 4 ), PoolIntArray( 4, 19, 20, 5 ), PoolIntArray( 18, 11, 10, 21 ), PoolIntArray( 20, 5, 6, 7, 8, 9, 10, 21, 23, 22 ) ]
 bones = [ NodePath("Root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/ArmL1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/ArmL1/ArmL2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/ArmL1/ArmL2/ArmL3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/ArmL1/ArmL2/ArmL3/ArmL4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/ArmL1/ArmL2/ArmL3/ArmL4/HandL"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/ArmR1"), PoolRealArray( 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/ArmR1/ArmR2"), PoolRealArray( 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/ArmR1/ArmR2/ArmR3"), PoolRealArray( 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0 ), NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4"), PoolRealArray( 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0 ), NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4/HandR"), PoolRealArray( 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1 ), NodePath("Root/LegL"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/LegR"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/Head"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 internal_vertex_count = 10
+
+[node name="Inventory" type="Node2D" parent="Polygons"]
+position = Vector2( -12.7505, -20.0349 )
 
 [node name="LegR" type="Polygon2D" parent="Polygons"]
 position = Vector2( -22.1883, -95.7857 )
@@ -832,6 +880,12 @@ rotation = -0.337074
 rest = Transform2D( 0.906308, -0.422618, 0.422618, 0.906308, 5.02748, -2.72989 )
 default_length = 6.0
 
+[node name="Attach" type="Position2D" parent="Skeleton/Root/ArmR1/ArmR2/ArmR3/ArmR4/HandR"]
+show_behind_parent = true
+position = Vector2( 3.36106, -0.0195398 )
+rotation = -0.225696
+scale = Vector2( 1, 1 )
+
 [node name="LegL" type="Bone2D" parent="Skeleton/Root"]
 position = Vector2( 0.95225, -5.32015 )
 rotation = -3.04371
@@ -851,7 +905,6 @@ rest = Transform2D( 0.990268, 0.139173, -0.139173, 0.990268, 41.0777, 4.11242 )
 default_length = 10.0
 
 [node name="HouseAnim" type="AnimationPlayer" parent="Skeleton"]
-anims/remove_cover = SubResource( 2 )
 
 [node name="Anim" type="AnimationPlayer" parent="Skeleton"]
 autoplay = "idle"

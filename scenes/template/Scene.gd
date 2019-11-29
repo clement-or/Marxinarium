@@ -45,8 +45,9 @@ func _move_player_to(point):
 	current_point = point
 
 func _on_Point_clicked(event, point):
-	if event.is_action_pressed("click") && player.global_position != point.global_position && player.controls_enabled:
-		_move_player_to(point)
+	if player.global_position != point.global_position && player.controls_enabled:
+		if (typeof(event) == TYPE_STRING && event == "force") || event.is_action_pressed("click"):
+			_move_player_to(point)
 
 func _on_Player_has_arrived():
 	if !entrance || !(exits && exits[sc.point_number]):
