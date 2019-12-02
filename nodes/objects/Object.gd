@@ -41,9 +41,10 @@ func actions():
 	if state.has("anim"):
 		anim.play(state.get("anim"))
 		yield(anim, "animation_finished")
+		emit_signal("action_is_finished")
 	elif state.has("func"):
 		call(state.get("func"))
-	emit_signal("action_is_finished")
+	
 
 # On click
 func _on_Object_input_event(viewport, event, shape_idx):
