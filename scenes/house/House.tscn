@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/template/Scene.gd" type="Script" id=1]
 [ext_resource path="res://scenes/house/house.jpg" type="Texture" id=2]
@@ -1483,6 +1483,10 @@ tracks/29/keys = {
 "values": [  ]
 }
 
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 30.8028
+height = 148.651
+
 [sub_resource type="Animation" id=8]
 length = 0.1
 step = 0.05
@@ -1654,9 +1658,20 @@ autoplay = ""
 [node name="ConveyorBelt" parent="Objects" instance=ExtResource( 6 )]
 position = Vector2( 761.606, 430.676 )
 player = NodePath("../../Navigation2D/Player")
+connected_point = NodePath("../../Points/Point2")
+
+[node name="Zone" parent="Objects/ConveyorBelt" index="0"]
+position = Vector2( 636.889, 0 )
+rotation = 1.57079
+shape = SubResource( 9 )
+
+[node name="Sprite" parent="Objects/ConveyorBelt" index="1"]
+position = Vector2( 127.595, 0 )
+scale = Vector2( 0.829873, 1 )
 
 [node name="Wires" parent="Objects" instance=ExtResource( 7 )]
 player = NodePath("../../Navigation2D/Player")
+conveyor = NodePath("../ConveyorBelt")
 
 [node name="Cover" parent="Objects/Wires" index="1"]
 position = Vector2( 31.6436, 1.95361 )
@@ -1675,5 +1690,7 @@ connected_point = NodePath("../../Points/Point")
 [editable path="Points/Point2"]
 
 [editable path="Navigation2D/Player"]
+
+[editable path="Objects/ConveyorBelt"]
 
 [editable path="Objects/Wires"]

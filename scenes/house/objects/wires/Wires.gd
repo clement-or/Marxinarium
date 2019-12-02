@@ -6,7 +6,9 @@ onready var house_anim
 
 export(NodePath) var connected_point
 export(NodePath) var player
+export(NodePath) var conveyor
 
+var is_going_right = false
 
 signal is_activated
 signal action_is_finished
@@ -17,8 +19,8 @@ signal action_is_finished
 var states = [
 	{"anim": "default", "next": -1},
 	{"func": "cover_fall", "next": -1},
-	{"anim": "wire1", "next": -1},
-	{"anim": "wire2", "next": 2},
+	{"func": "wires", "next": -1},
+	{"func": "wires", "next": 2},
 ]
 
 var cur_state = 0
@@ -28,6 +30,8 @@ func _ready():
 	connected_point = get_node(connected_point)
 	assert(player)
 	player = get_node(player)
+	assert(conveyor)
+	conveyor = get_node(conveyor)
 	
 	house_anim = player.get_node("Skeleton/HouseAnim")
 	player_anim = player.get_node("Skeleton/Anim")
@@ -70,3 +74,12 @@ func cover_fall():
 	yield(anim, "animation_finished")
 	emit_signal("action_is_finished")
 	player_anim.play("idle")
+
+func wires():
+	is_going_right = !is_going_right
+	if is_going_right:
+		$Anim.play("wire2")
+	else:
+		$Anim.play("wire1")
+	conveyor.is_going_right = is_going_right
+	emit_signal("action_is_finished")
