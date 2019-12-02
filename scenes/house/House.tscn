@@ -17,7 +17,7 @@ vertices = PoolVector2Array( 1240, 540, 1810, 580, 1780, 680, 1240, 640 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( 1240, 540, 1810, 580, 1780, 680, 1240, 640 ) ]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 resource_name = "drop_book"
 length = 2.2
 tracks/0/type = "value"
@@ -417,8 +417,7 @@ tracks/32/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "remove_cover1"
+[sub_resource type="Animation" id=4]
 length = 0.7
 step = 0.05
 tracks/0/type = "value"
@@ -758,7 +757,7 @@ tracks/27/keys = {
 "values": [ 0.0, -134.538, -142.574, -142.574, 7.69363, 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "remove_cover2"
 
 [sub_resource type="Animation" id=6]
@@ -1123,8 +1122,7 @@ tracks/29/keys = {
 "values": [ Vector2( 1720, 620 ), Vector2( 1647.23, 657.49 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "take_new_book2"
+[sub_resource type="Animation" id=7]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4:position")
@@ -1485,8 +1483,7 @@ tracks/29/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "default"
+[sub_resource type="Animation" id=8]
 length = 0.1
 step = 0.05
 tracks/0/type = "value"
@@ -1513,45 +1510,33 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0 ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("Box:frame")
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Cover:position:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"points": PoolRealArray( 31.6436, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
 }
 tracks/3/type = "bezier"
-tracks/3/path = NodePath("Cover:position:x")
+tracks/3/path = NodePath("Cover:position:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 31.6436, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 1.95361, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
-tracks/4/type = "bezier"
-tracks/4/path = NodePath("Cover:position:y")
+tracks/4/type = "value"
+tracks/4/path = NodePath("Cover:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"points": PoolRealArray( 1.95361, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Cover:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -1655,11 +1640,11 @@ position = Vector2( 40.5776, 45.5295 )
 rotation = 0.139626
 
 [node name="HouseAnim" parent="Navigation2D/Player/Skeleton" index="1"]
-anims/drop_book = SubResource( 8 )
-anims/remove_cover1 = SubResource( 3 )
-anims/remove_cover2 = SubResource( 7 )
+anims/drop_book = SubResource( 3 )
+anims/remove_cover1 = SubResource( 4 )
+anims/remove_cover2 = SubResource( 5 )
 anims/take_new_book1 = SubResource( 6 )
-anims/take_new_book2 = SubResource( 5 )
+anims/take_new_book2 = SubResource( 7 )
 
 [node name="Anim" parent="Navigation2D/Player/Skeleton" index="2"]
 autoplay = ""
@@ -1678,7 +1663,7 @@ position = Vector2( 31.6436, 1.95361 )
 rotation = -0.0261298
 
 [node name="Anim" parent="Objects/Wires" index="3"]
-anims/default = SubResource( 4 )
+anims/default = SubResource( 8 )
 
 [node name="Grid" parent="Objects" instance=ExtResource( 8 )]
 position = Vector2( 1557.58, 666.103 )

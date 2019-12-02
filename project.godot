@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Marxinarium"
+run/main_scene="res://scenes/house/House.tscn"
 
 [autoload]
 

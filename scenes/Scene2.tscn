@@ -91,6 +91,8 @@ navpoly = SubResource( 4 )
 scale = Vector2( 1.5, 1.5 )
 speed = 300
 
+[node name="Objects" type="Node2D" parent="."]
+
 [editable path="Points/Point1"]
 
 [editable path="Points/Point2"]
