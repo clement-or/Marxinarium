@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://nodes/objects/Object.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/house/conveyor_belt/ConveyorBelt.gd" type="Script" id=2]
-[ext_resource path="res://scenes/house/conveyor_belt/conveyorbelt.png" type="Texture" id=3]
+[ext_resource path="res://scenes/house/objects/conveyor_belt/ConveyorBelt.gd" type="Script" id=2]
+[ext_resource path="res://scenes/house/objects/conveyor_belt/conveyorbelt.png" type="Texture" id=3]
+
 
 [node name="ConveyorBelt" instance=ExtResource( 1 )]
 script = ExtResource( 2 )

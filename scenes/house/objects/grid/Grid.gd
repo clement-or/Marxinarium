@@ -1,6 +1,6 @@
 extends "res://nodes/objects/Object.gd"
 
-var Book = preload("res://scenes/house/book/Book.tscn")
+var Book = preload("res://scenes/house/objects/book/Book.tscn")
 
 # state template
 # {"anim" : "name", "next": -1}

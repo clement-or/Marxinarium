@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/conveyorbelt.png-a3c81dc35e781cfb8b6d2cae24cfaf73.stex"
+path="res://.import/wires.png-6e9589d45969bd43e403459b7fac5131.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/house/conveyor_belt/conveyorbelt.png"
-dest_files=[ "res://.import/conveyorbelt.png-a3c81dc35e781cfb8b6d2cae24cfaf73.stex" ]
+source_file="res://scenes/house/objects/wires/wires.png"
+dest_files=[ "res://.import/wires.png-6e9589d45969bd43e403459b7fac5131.stex" ]
 
 [params]
 

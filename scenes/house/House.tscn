@@ -5,9 +5,9 @@
 [ext_resource path="res://nodes/points/Point.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Navigation2D.gd" type="Script" id=4]
 [ext_resource path="res://nodes/player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/house/conveyor_belt/ConveyorBelt.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/house/wires/Wires.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/house/grid/Grid.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/house/objects/conveyor_belt/ConveyorBelt.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/house/objects/wires/Wires.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/house/objects/grid/Grid.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 102.737
