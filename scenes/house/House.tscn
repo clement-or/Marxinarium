@@ -1,13 +1,14 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/template/Scene.gd" type="Script" id=1]
 [ext_resource path="res://scenes/house/house.jpg" type="Texture" id=2]
 [ext_resource path="res://nodes/points/Point.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Navigation2D.gd" type="Script" id=4]
 [ext_resource path="res://nodes/player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/house/objects/conveyor_belt/ConveyorBelt.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/house/objects/wires/Wires.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/house/objects/grid/Grid.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/house/characters/mom/Mom.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/house/objects/conveyor_belt/ConveyorBelt.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/house/objects/wires/Wires.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/house/objects/grid/Grid.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 102.737
@@ -417,7 +418,7 @@ tracks/32/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=4]
 resource_name = "put_book_on_conveyor"
 length = 0.8
 tracks/0/type = "value"
@@ -814,7 +815,7 @@ tracks/32/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.7
 step = 0.05
 tracks/0/type = "value"
@@ -1877,6 +1878,9 @@ tracks/29/keys = {
 "values": [  ]
 }
 
+[sub_resource type="Animation" id=10]
+resource_name = "take_book"
+
 [sub_resource type="CapsuleShape2D" id=8]
 radius = 30.8028
 height = 148.651
@@ -1993,6 +1997,7 @@ __meta__ = {
 navpoly = SubResource( 2 )
 
 [node name="Player" parent="Navigation2D" instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( 1714.43, 658.782 )
 scale = Vector2( -3, 3 )
 z_index = 1
@@ -2040,17 +2045,104 @@ rotation = 0.139626
 
 [node name="HouseAnim" parent="Navigation2D/Player/Skeleton" index="1"]
 anims/drop_book = SubResource( 3 )
-anims/put_book_on_conveyor = SubResource( 10 )
-anims/remove_cover1 = SubResource( 4 )
+anims/put_book_on_conveyor = SubResource( 4 )
+anims/remove_cover1 = SubResource( 5 )
 anims/take_new_book1 = SubResource( 6 )
 anims/take_new_book2 = SubResource( 7 )
 
 [node name="Anim" parent="Navigation2D/Player/Skeleton" index="2"]
 autoplay = ""
 
+[node name="Mom" parent="Navigation2D" instance=ExtResource( 6 )]
+position = Vector2( 858.247, 637.855 )
+scale = Vector2( 6, 6 )
+z_index = 1
+
+[node name="ArmR" parent="Navigation2D/Mom/Polygons" index="0"]
+position = Vector2( 36.7058, -76.4048 )
+rotation = -3.16504
+
+[node name="ArmL" parent="Navigation2D/Mom/Polygons" index="4"]
+position = Vector2( -27.5095, -77.0469 )
+
+[node name="Body" parent="Navigation2D/Mom/Polygons" index="5"]
+position = Vector2( 3.17424, -23.8503 )
+scale = Vector2( 0.075, 0.075 )
+
+[node name="Head" parent="Navigation2D/Mom/Polygons" index="6"]
+position = Vector2( 0.866959, -41.2361 )
+rotation = 0.0523662
+scale = Vector2( 0.075, 0.075 )
+
+[node name="Root" parent="Navigation2D/Mom/Skeleton" index="0"]
+position = Vector2( 0.0994415, -10.6401 )
+rest = Transform2D( -0.0871523, -0.996195, 0.996195, -0.0871523, 0.0994415, -10.6401 )
+
+[node name="ArmL1" parent="Navigation2D/Mom/Skeleton/Root" index="0"]
+position = Vector2( 25.049, -8.48368 )
+rotation = -0.0038407
+z_index = 1
+rest = Transform2D( 1, 0, 0, 1, 25.049, -8.48368 )
+
+[node name="ArmL2" parent="Navigation2D/Mom/Skeleton/Root/ArmL1" index="0"]
+rotation = 0.0
+
+[node name="ArmL3" parent="Navigation2D/Mom/Skeleton/Root/ArmL1/ArmL2" index="0"]
+rotation = 0.0
+
+[node name="ArmL4" parent="Navigation2D/Mom/Skeleton/Root/ArmL1/ArmL2/ArmL3" index="0"]
+rotation = -2.79253
+rest = Transform2D( -0.939693, -0.34202, 0.34202, -0.939693, -4.83045, -1.81036 )
+
+[node name="HandL" parent="Navigation2D/Mom/Skeleton/Root/ArmL1/ArmL2/ArmL3/ArmL4" index="0"]
+rotation = -0.150607
+rest = Transform2D( 0.98868, -0.150038, 0.150038, 0.98868, 5.50849, -0.0447598 )
+
+[node name="ArmR1" parent="Navigation2D/Mom/Skeleton/Root" index="1"]
+position = Vector2( 23.7944, 18.519 )
+rotation = -0.0038407
+z_index = 1
+rest = Transform2D( 1, 0, 0, 1, 23.7944, 18.519 )
+
+[node name="ArmR2" parent="Navigation2D/Mom/Skeleton/Root/ArmR1" index="0"]
+rotation = 0.0
+
+[node name="ArmR3" parent="Navigation2D/Mom/Skeleton/Root/ArmR1/ArmR2" index="0"]
+rotation = 0.0
+
+[node name="ArmR4" parent="Navigation2D/Mom/Skeleton/Root/ArmR1/ArmR2/ArmR3" index="0"]
+rotation = -2.79253
+rest = Transform2D( -0.939693, -0.34202, 0.34202, -0.939693, -4.75411, 1.01732 )
+
+[node name="HandR" parent="Navigation2D/Mom/Skeleton/Root/ArmR1/ArmR2/ArmR3/ArmR4" index="0"]
+rotation = -0.436332
+scale = Vector2( 1, 1 )
+rest = Transform2D( 0.906308, -0.422618, 0.422618, 0.906308, 5.02748, -2.72989 )
+
+[node name="LegL" parent="Navigation2D/Mom/Skeleton/Root" index="2"]
+position = Vector2( 0.95225, -5.32015 )
+scale = Vector2( 1, 1 )
+rest = Transform2D( -0.995214, -0.0977219, 0.0977219, -0.995214, 0.95225, -5.32015 )
+
+[node name="LegR" parent="Navigation2D/Mom/Skeleton/Root" index="3"]
+position = Vector2( 0.0739594, 8.23338 )
+scale = Vector2( 1, 1 )
+rest = Transform2D( -0.995214, -0.0977219, 0.0977219, -0.995214, 0.0739594, 8.23338 )
+
+[node name="Head" parent="Navigation2D/Mom/Skeleton/Root" index="4"]
+position = Vector2( 29.7271, 3.11942 )
+rotation = 0.139626
+rest = Transform2D( 0.990268, 0.139173, -0.139173, 0.990268, 29.7271, 3.11942 )
+
+[node name="RemoteHead" parent="Navigation2D/Mom/Skeleton/Root/Head" index="0"]
+position = Vector2( 0.722279, 0.213257 )
+
+[node name="HouseAnim" parent="Navigation2D/Mom/Skeleton" index="1"]
+anims/take_book = SubResource( 10 )
+
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="ConveyorBelt" parent="Objects" instance=ExtResource( 6 )]
+[node name="ConveyorBelt" parent="Objects" instance=ExtResource( 7 )]
 position = Vector2( 761.606, 430.676 )
 player = NodePath("../../Navigation2D/Player")
 connected_point = NodePath("../../Points/Point")
@@ -2068,7 +2160,7 @@ scale = Vector2( 0.829873, 1 )
 [node name="End" parent="Objects/ConveyorBelt" index="4"]
 position = Vector2( -479.665, 0 )
 
-[node name="Wires" parent="Objects" instance=ExtResource( 7 )]
+[node name="Wires" parent="Objects" instance=ExtResource( 8 )]
 player = NodePath("../../Navigation2D/Player")
 conveyor = NodePath("../ConveyorBelt")
 
@@ -2079,7 +2171,7 @@ rotation = -0.0261298
 [node name="Anim" parent="Objects/Wires" index="3"]
 anims/default = SubResource( 9 )
 
-[node name="Grid" parent="Objects" instance=ExtResource( 8 )]
+[node name="Grid" parent="Objects" instance=ExtResource( 9 )]
 position = Vector2( 1662.55, 683.598 )
 player = NodePath("../../Navigation2D/Player")
 connected_point = NodePath("../../Points/Point")
@@ -2089,6 +2181,8 @@ connected_point = NodePath("../../Points/Point")
 [editable path="Points/Point2"]
 
 [editable path="Navigation2D/Player"]
+
+[editable path="Navigation2D/Mom"]
 
 [editable path="Objects/ConveyorBelt"]
 

@@ -24,6 +24,7 @@ func _ready() :
 
 func put_object_on():
 	if !(player.get_inventory_content() && player.get_inventory_content().get_class() == "Book"):
+		emit_signal("action_is_finished")
 		return
 	# Play the animation, player puts the book on the conveyor
 	player_anim.stop()
