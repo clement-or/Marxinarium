@@ -42,7 +42,7 @@ func put_object_on():
 	obj.set_owner(target)
 	
 	obj.global_position = pos
-	obj.scale = Vector2(-3,3)
+	obj.scale = Vector2(-3,2)
 	player_anim.play('idle')
 	
 	emit_signal("action_is_finished")

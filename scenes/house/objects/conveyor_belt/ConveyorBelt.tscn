@@ -27,7 +27,6 @@ radius = 6.9165
 height = 93.3661
 
 [node name="ConveyorBelt" instance=ExtResource( 1 )]
-position = Vector2( 997.862, 287.903 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]

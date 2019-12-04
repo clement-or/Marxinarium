@@ -6,6 +6,7 @@ onready var points = $Points.get_children()
 onready var exits = $Exits.get_children()
 onready var player = $Navigation2D/Player
 onready var objects = $Objects.get_children()
+onready var characters = $Characters.get_children()
 
 export(NodePath) var starting_point
 
@@ -39,6 +40,9 @@ func _connect_all_signals():
 	for object in objects:
 		object.connect("is_activated", self, "_on_Object_is_activated")
 		object.connect("action_is_finished", self, "_on_Object_action_is_finished")
+	for character in characters:
+		character.connect("is_activated", self, "_on_Object_is_activated")
+		character.connect("action_is_finished", self, "_on_Object_action_is_finished")
 
 func _move_player_to(point):
 	player.path = $Navigation2D.get_simple_path(player.global_position, point.global_position, true)
