@@ -30,9 +30,11 @@ func take_book():
 	
 	anim.play("take_book")
 	yield(anim, "animation_finished")
-	
-	anim.play("go_back")
-	yield(anim, "animation_finished")
+	if book_pile_node.is_full():
+		anim.play("take_key")
+	else:
+		anim.play("go_back")
+		yield(anim, "animation_finished")
 	
 	area.call_deferred("set_disabled",false)
 
@@ -55,7 +57,7 @@ func drop_book():
 	
 	inventory.remove_child(obj)
 	book_pile_node.add_child(obj)
-	obj.set_owner(obj)
+	obj.set_owner(book_pile_node)
 	# Reposition book
 	obj.global_position = pos
 	obj.global_rotation = rot
