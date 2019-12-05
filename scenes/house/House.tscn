@@ -2811,7 +2811,7 @@ tracks/38/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=13]
 resource_name = "drop1"
 length = 0.5
 tracks/0/type = "value"
@@ -2839,8 +2839,7 @@ tracks/1/keys = {
 "values": [ -12.9314, -12.9314 ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "walk_feet"
+[sub_resource type="Animation" id=14]
 length = 1.7
 loop = true
 tracks/0/type = "value"
@@ -2892,7 +2891,7 @@ tracks/3/keys = {
 "values": [ -174.392, -179.824, -176.663, -174.392, -189.799, -174.392 ]
 }
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 0.560959, 10 )
 
 [node name="Scene" type="Node2D"]
@@ -3067,8 +3066,8 @@ z_index = 1
 position = Vector2( 3.17424, -23.8503 )
 
 [node name="Head" parent="Characters/Mom/Polygons" index="6"]
-position = Vector2( 1.60562, -40.7014 )
-rotation = -0.0316942
+position = Vector2( 1.60559, -40.7014 )
+rotation = -0.0316947
 scale = Vector2( 0.075, 0.075 )
 
 [node name="Root" parent="Characters/Mom/Skeleton" index="0"]
@@ -3124,15 +3123,15 @@ anims/go_back = SubResource( 11 )
 anims/take_book = SubResource( 12 )
 
 [node name="Anim" parent="Characters/Mom/Skeleton" index="2"]
-anims/drop1 = SubResource( 15 )
-anims/walk_feet = SubResource( 13 )
+anims/drop1 = SubResource( 13 )
+anims/walk_feet = SubResource( 14 )
 
 [node name="ConveyorChecker" parent="Characters/Mom" index="2"]
 position = Vector2( 15.7758, -42.3545 )
 
 [node name="CollisionShape2D" parent="Characters/Mom/ConveyorChecker" index="0"]
 position = Vector2( 2.04338, 0 )
-shape = SubResource( 14 )
+shape = SubResource( 15 )
 
 [node name="Overlay" type="CanvasLayer" parent="."]
 layer = 2
