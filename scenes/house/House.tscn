@@ -8,7 +8,8 @@
 [ext_resource path="res://scenes/house/objects/conveyor_belt/ConveyorBelt.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/house/objects/wires/Wires.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/house/objects/grid/Grid.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/house/characters/mom/Mom.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/house/BookPile.gd" type="Script" id=9]
+[ext_resource path="res://scenes/house/characters/mom/Mom.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 102.737
@@ -2803,44 +2804,29 @@ tracks/38/loop_wrap = true
 tracks/38/imported = false
 tracks/38/enabled = true
 tracks/38/keys = {
-"times": PoolRealArray( 1.4 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 1.4, 2.8 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "put_book_in_inventory"
+}, {
+"args": [  ],
+"method": "drop_book"
 } ]
 }
-
-[sub_resource type="Animation" id=15]
-resource_name = "drop1"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4/HandR/Attach:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -9.4699, 20.3861 ), Vector2( 14.1132, 24.5444 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4/HandR/Attach:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -12.9314, -12.9314 ]
+tracks/39/type = "method"
+tracks/39/path = NodePath("..")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
 }
 
 [sub_resource type="Animation" id=13]
-resource_name = "walk_feet"
 length = 1.7
 loop = true
 tracks/0/type = "value"
@@ -2898,11 +2884,15 @@ extents = Vector2( 0.560959, 10 )
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 653.892, 446.035 ],
+"_edit_horizontal_guides_": [  ],
 "_edit_lock_": true,
-"_edit_vertical_guides_": [ 1617.59, 1627.17, 1658.37, 1668.16, 1622.68, 1663.47, 1056.93, 1044.17 ]
+"_edit_vertical_guides_": [  ]
 }
 starting_point = NodePath("Points/Point")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 960, 540 )
+current = true
 
 [node name="scene" type="Sprite" parent="."]
 position = Vector2( 957.37, 538.666 )
@@ -3008,7 +2998,7 @@ position = Vector2( 1013.33, 430.676 )
 scale = Vector2( 0.76, 1 )
 player = NodePath("../../Navigation2D/Player")
 connected_point = NodePath("../../Points/Point")
-speed = 2
+speed = 4
 
 [node name="Zone" parent="Objects/ConveyorBelt" index="0"]
 position = Vector2( 574.021, 0 )
@@ -3023,7 +3013,6 @@ scale = Vector2( 0.829873, 1 )
 position = Vector2( -479.665, 0 )
 
 [node name="Wires" parent="Objects" instance=ExtResource( 7 )]
-editor/display_folded = true
 position = Vector2( 1300, 430.676 )
 scale = Vector2( 1, 1 )
 player = NodePath("../../Navigation2D/Player")
@@ -3043,13 +3032,29 @@ player = NodePath("../../Navigation2D/Player")
 connected_point = NodePath("../../Points/Point")
 
 [node name="BookPile" type="Node2D" parent="Objects"]
+script = ExtResource( 9 )
+
+[node name="Positions" type="Node2D" parent="Objects/BookPile"]
+
+[node name="Pos1" type="Position2D" parent="Objects/BookPile/Positions"]
+position = Vector2( 1055, 560 )
+
+[node name="Pos2" type="Position2D" parent="Objects/BookPile/Positions"]
+position = Vector2( 1055, 540 )
+
+[node name="Pos3" type="Position2D" parent="Objects/BookPile/Positions"]
+position = Vector2( 1055, 520 )
+
+[node name="Pos4" type="Position2D" parent="Objects/BookPile/Positions"]
+position = Vector2( 1055, 500 )
 
 [node name="Characters" type="Node2D" parent="."]
 
-[node name="Mom" parent="Characters" instance=ExtResource( 9 )]
-position = Vector2( 1045, 555 )
+[node name="Mom" parent="Characters" instance=ExtResource( 10 )]
+position = Vector2( 981.376, 560.82 )
 scale = Vector2( 5, 5 )
 z_index = 1
+book_pile_node = NodePath("../../Objects/BookPile")
 
 [node name="Polygons" parent="Characters/Mom" index="0"]
 editor/display_folded = false
@@ -3064,11 +3069,11 @@ z_index = 1
 z_index = 1
 
 [node name="Body" parent="Characters/Mom/Polygons" index="5"]
-position = Vector2( 3.17424, -23.8503 )
+position = Vector2( 3.17426, -23.8503 )
 
 [node name="Head" parent="Characters/Mom/Polygons" index="6"]
-position = Vector2( 1.60562, -40.7014 )
-rotation = -0.0316942
+position = Vector2( 1.60559, -40.7014 )
+rotation = -0.0316947
 scale = Vector2( 0.075, 0.075 )
 
 [node name="Root" parent="Characters/Mom/Skeleton" index="0"]
@@ -3106,9 +3111,6 @@ rotation = -2.79253
 [node name="HandR" parent="Characters/Mom/Skeleton/Root/ArmR1/ArmR2/ArmR3/ArmR4" index="0"]
 rotation = -0.436332
 
-[node name="Attach" parent="Characters/Mom/Skeleton/Root/ArmR1/ArmR2/ArmR3/ArmR4/HandR" index="0"]
-position = Vector2( 14.1132, 24.5444 )
-
 [node name="LegL" parent="Characters/Mom/Skeleton/Root" index="2"]
 position = Vector2( 0.95225, -5.32015 )
 
@@ -3124,11 +3126,10 @@ anims/go_back = SubResource( 11 )
 anims/take_book = SubResource( 12 )
 
 [node name="Anim" parent="Characters/Mom/Skeleton" index="2"]
-anims/drop1 = SubResource( 15 )
 anims/walk_feet = SubResource( 13 )
 
 [node name="ConveyorChecker" parent="Characters/Mom" index="2"]
-position = Vector2( 15.7758, -42.3545 )
+position = Vector2( 46.7374, -38.97 )
 
 [node name="CollisionShape2D" parent="Characters/Mom/ConveyorChecker" index="0"]
 position = Vector2( 2.04338, 0 )
