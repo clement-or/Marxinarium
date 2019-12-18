@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://nodes/objects/Object.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/house/objects/key/Key.gd" type="Script" id=2]
+[ext_resource path="res://scenes/house/objects/key/key.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 38.1686 )
+
+[node name="Key" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Zone" parent="." index="0"]
+position = Vector2( 1.90262, 29.2527 )
+shape = SubResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="." index="1"]
+modulate = Color( 0, 0, 0, 0.305882 )
+position = Vector2( 4.53189, 29.0209 )
+scale = Vector2( 0.0957229, 0.101578 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+position = Vector2( 4.70672, 27.7097 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+
+[node name="Anim" parent="." index="3"]
+autoplay = ""

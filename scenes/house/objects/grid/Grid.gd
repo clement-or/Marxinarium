@@ -10,11 +10,19 @@ func _ready():
 	states = [
 		{"anim": "default", "next": -1},
 		{"func": "first", "next": -1},
+		{"anim": "default", "next": 2}
 	]
 
 func first():
 	# If the player has the key
-	if player.inventory && player.inventory.get_class() == "Key":
+	if player.inventory && player.get_inventory_content() && player.get_inventory_content().get_class() == "Key":
+		anim.play("open")
+		yield(anim, "animation_finished")
+		player.scale.x = -abs(player.scale.x)
+		player.house_anim.play("jump")
+		player.empty_inventory()
+		yield(player.house_anim, "animation_finished")
+		emit_signal("action_is_finished")
 		return
 		
 	player.scale.x = -abs(player.scale.x)
@@ -39,3 +47,6 @@ func first():
 	emit_signal("action_is_finished")
 	connected_point.move_there()
 	cur_state = 0
+
+func open():
+	pass

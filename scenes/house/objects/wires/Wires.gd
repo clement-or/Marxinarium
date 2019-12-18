@@ -19,8 +19,7 @@ signal action_is_finished
 var states = [
 	{"anim": "default", "next": -1},
 	{"func": "cover_fall", "next": -1},
-	{"func": "wires", "next": -1},
-	{"func": "wires", "next": 2},
+	{"func": "wires", "next": 2}
 ]
 
 var cur_state = 0

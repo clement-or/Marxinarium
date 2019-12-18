@@ -2,6 +2,7 @@ extends Area2D
 
 onready var scene_changer = get_node("/root/SceneChanger")
 onready var anim = $Skeleton/Anim
+onready var house_anim = $Skeleton/HouseAnim
 onready var inventory = $Polygons/Inventory
 onready var inventory_content setget set_inventory_content,get_inventory_content
 onready var attach_point = $Skeleton/Root/ArmR1/ArmR2/ArmR3/ArmR4/HandR/Attach
@@ -25,6 +26,7 @@ func _ready():
 	anim.play("idle")
 
 func _process(delta):
+	
 	inventory.global_position = attach_point.global_position
 	inventory.rotation = attach_point.rotation
 	if path:
