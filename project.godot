@@ -16,11 +16,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Marxinarium"
-run/main_scene="res://scenes/house/House.tscn"
+run/main_scene="res://ui/Menu.tscn"
+boot_splash/image="res://ui/splash.png"
+boot_splash/bg_color=Color( 0.109804, 0.109804, 0.129412, 1 )
 
 [autoload]
 
-SceneChanger="*res://singletons/SceneChanger.gd"
+SceneChanger="*res://singletons/SceneChanger.tscn"
 
 [debug]
 

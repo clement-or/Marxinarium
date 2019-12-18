@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/house/objects/wires/Wires.gd" type="Script" id=1]
 [ext_resource path="res://scenes/house/objects/wires/boitier_ferme.png" type="Texture" id=2]
 [ext_resource path="res://scenes/house/objects/wires/panneau.png" type="Texture" id=3]
 [ext_resource path="res://scenes/house/objects/wires/plaque_ouverte.png" type="Texture" id=4]
+[ext_resource path="res://audio/cover_fall.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 33.7792
@@ -36,6 +37,32 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 2, 1, 1, 1 ),
 "update": 0,
 "values": [ 4.45261, 4.45261, 75.3956, 90.6472, 90.6472 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("panneau:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("CoverFallSound")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0.75 )
 }
 
 [sub_resource type="Animation" id=3]
@@ -94,8 +121,8 @@ hframes = 2
 frame = 1
 
 [node name="Cover" type="Sprite" parent="."]
-position = Vector2( 40.0117, 113.863 )
-rotation = 1.58209
+position = Vector2( 5, 11 )
+rotation = 0.0777127
 scale = Vector2( 0.306889, 0.329538 )
 texture = ExtResource( 4 )
 
@@ -112,5 +139,9 @@ anims/cover_fall = SubResource( 2 )
 anims/default = SubResource( 3 )
 anims/wire1 = SubResource( 4 )
 anims/wire2 = SubResource( 5 )
+
+[node name="CoverFallSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
 [connection signal="input_event" from="." to="." method="_on_Wires_input_event"]
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]

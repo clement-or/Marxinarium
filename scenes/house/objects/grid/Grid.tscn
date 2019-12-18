@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://nodes/objects/Object.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/house/objects/grid/Grid.gd" type="Script" id=2]
 [ext_resource path="res://scenes/house/objects/grid/grid.png" type="Texture" id=3]
 [ext_resource path="res://scenes/house/objects/grid/plaque_haut.png" type="Texture" id=4]
+[ext_resource path="res://audio/grid_open.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 24.4352
@@ -34,3 +35,7 @@ position = Vector2( -0.224854, -0.0392456 )
 scale = Vector2( 0.193243, 0.193243 )
 texture = ExtResource( 4 )
 offset = Vector2( -334.087, 31.7627 )
+
+[node name="SFX" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource( 5 )
+volume_db = -12.0

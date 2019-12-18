@@ -122,6 +122,8 @@ func empty_inventory():
 func _on_Wires_change_direction():
 	if anim.is_playing():
 		return
+	if !(get_inventory_content() && get_inventory_content().get_class() == "Key"):
+		return
 	if cur_state == 0 && wires.is_going_right:
 		cur_state = 1
 		.actions()
