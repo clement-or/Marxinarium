@@ -2,6 +2,7 @@ extends "res://nodes/objects/Object.gd"
 
 export(NodePath) var book_pile_node
 export(NodePath) var key
+export(NodePath) var wires
 
 onready var area = $ConveyorChecker/CollisionShape2D
 var target
@@ -15,18 +16,36 @@ func _ready():
 	book_pile_node = get_node(book_pile_node)
 	assert(key)
 	key = get_node(key)
+	assert(wires)
+	wires = get_node(wires)
 	
 	states = [
 	{"func": "take_book", "next": 0},
-	{"func": "take_key", "next": -1}
+	{"func": "take_key", "next": -1},
+	{"func": "drop_key", "next": -1}
 	]
 	anim = $Skeleton/HouseAnim
+
+func _process(delta):
+	inventory.global_position = attach_point.global_position
+	inventory.rotation = attach_point.rotation
 
 func _on_ConveyorChecker_area_entered(area):
 	if !area.get_class() == "Book":
 		return
 	target = area
 	.actions()
+
+func drop_key():
+	# Reparent Book
+	var obj = get_inventory_content()
+
+	obj.get_parent().remove_child(obj)
+	player.set_inventory_content(obj)
+	obj.set_owner(player.inventory)
+	
+	obj.global_position = player.attach_point.global_position
+	obj.scale = Vector2(.3,.3)
 
 func take_book():
 	area.call_deferred("set_disabled",true)
@@ -35,11 +54,16 @@ func take_book():
 	yield(anim, "animation_finished")
 	if book_pile_node.is_full():
 		anim.play("take_key")
+		yield(anim, "animation_finished")
+		#player.set_inventory_content(key)
 	else:
 		anim.play("go_back")
 		yield(anim, "animation_finished")
 	
 	area.call_deferred("set_disabled",false)
+	if wires.is_going_right:
+		cur_state = 1
+		.actions()
 
 func put_book_in_inventory():
 	# Reparent Book
@@ -55,13 +79,13 @@ func put_book_in_inventory():
 func put_key_in_inventory():
 	# Reparent Book
 	var obj = key
-	obj.global_position = attach_point.global_position
-	obj.scale = Vector2(3,3)
 
 	obj.get_parent().remove_child(obj)
-	set_inventory_content(target)
+	set_inventory_content(obj)
 	obj.set_owner(inventory)
 	
+	obj.global_position = attach_point.global_position
+	obj.scale = Vector2(.2,.2)
 
 func drop_book():
 	# Reparent book
@@ -94,3 +118,10 @@ func set_inventory_content(content):
 
 func empty_inventory(): 
 	get_inventory_content().queue_free()
+
+func _on_Wires_change_direction():
+	if anim.is_playing():
+		return
+	if cur_state == 0 && wires.is_going_right:
+		cur_state = 1
+		.actions()

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chem1.png-0d0ebc151ece3d0d5ed58d457f3cbac3.stex"
+path="res://.import/Calque 14.png-2c9fa3199d9cee79c0211493d30ba515.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/house/objects/wires/chem1.png"
-dest_files=[ "res://.import/chem1.png-0d0ebc151ece3d0d5ed58d457f3cbac3.stex" ]
+source_file="res://scenes/house/sprites/Calque 14.png"
+dest_files=[ "res://.import/Calque 14.png-2c9fa3199d9cee79c0211493d30ba515.stex" ]
 
 [params]
 

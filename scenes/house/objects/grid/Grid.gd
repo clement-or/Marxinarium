@@ -9,13 +9,16 @@ var Book = preload("res://scenes/house/objects/book/Book.tscn")
 func _ready():
 	states = [
 		{"anim": "default", "next": -1},
-		{"func": "first", "next": -1},
+		{"func": "first", "next": -1}
 	]
 
 func first():
 	# If the player has the key
 	if player.inventory && player.inventory.get_class() == "Key":
-		return
+		anim.play("open")
+		yield(anim, "animation_finished")
+		player.house_anim.play("jump")
+		yield(anim, "animation_finished")
 		
 	player.scale.x = -abs(player.scale.x)
 	# If the player has a book, drop it
@@ -39,3 +42,6 @@ func first():
 	emit_signal("action_is_finished")
 	connected_point.move_there()
 	cur_state = 0
+
+func open():
+	pass

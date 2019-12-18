@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chem2.png-08fb8554c6bd8068e6d3f6beaaba4ba7.stex"
+path="res://.import/panneauv2_2.png-5b05eac0a39e0ce3f44f9c6b3b3480ff.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/house/objects/wires/chem2.png"
-dest_files=[ "res://.import/chem2.png-08fb8554c6bd8068e6d3f6beaaba4ba7.stex" ]
+source_file="res://scenes/house/objects/wires/panneauv2_2.png"
+dest_files=[ "res://.import/panneauv2_2.png-5b05eac0a39e0ce3f44f9c6b3b3480ff.stex" ]
 
 [params]
 
