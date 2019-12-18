@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scenes/template/Scene.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Camera.gd" type="Script" id=2]
@@ -13,7 +13,7 @@
 [ext_resource path="res://scenes/house/BookPile.gd" type="Script" id=11]
 [ext_resource path="res://scenes/house/characters/mom/Mom.tscn" type="PackedScene" id=12]
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=1]
 resource_name = "screen_shake"
 length = 0.5
 step = 0.05
@@ -30,18 +30,18 @@ tracks/0/keys = {
 "values": [ Vector2( 960, 540 ), Vector2( 965, 545 ), Vector2( 955, 535 ), Vector2( 975, 550 ), Vector2( 950, 550 ), Vector2( 960, 530 ), Vector2( 960, 540 ), Vector2( 965, 545 ), Vector2( 955, 535 ), Vector2( 975, 550 ), Vector2( 960, 540 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 radius = 102.737
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 60.0157
 
-[sub_resource type="NavigationPolygon" id=3]
+[sub_resource type="NavigationPolygon" id=4]
 vertices = PoolVector2Array( 1370, 530, 1730, 520, 1780, 570, 1540, 580, 1300, 580 )
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ) ]
 outlines = [ PoolVector2Array( 1370, 530, 1730, 520, 1780, 570, 1540, 580, 1300, 580 ) ]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 2.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4:position")
@@ -440,7 +440,7 @@ tracks/32/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4:position")
@@ -836,7 +836,7 @@ tracks/32/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.7
 step = 0.05
 tracks/0/type = "value"
@@ -1176,7 +1176,7 @@ tracks/27/keys = {
 "values": [ 0.0, -134.538, -142.574, -142.574, 7.69363, 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 1.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4:position")
@@ -1537,7 +1537,7 @@ tracks/29/keys = {
 "values": [ Vector2( 1670, 560 ), Vector2( 1613.1, 560 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Root/ArmR1/ArmR2/ArmR3/ArmR4:position")
@@ -1898,11 +1898,11 @@ tracks/29/keys = {
 "values": [  ]
 }
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=10]
 radius = 30.8028
 height = 266.969
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.1
 step = 0.05
 tracks/0/type = "value"
@@ -1962,8 +1962,34 @@ tracks/4/keys = {
 "values": [ -1.49713 ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "go_back"
+[sub_resource type="Animation" id=17]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7, 0.9 ),
+"transitions": PoolRealArray( 2, 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1104.19, 240.009 ), Vector2( 1138.32, 535.787 ), Vector2( 1174.97, 509.723 ), Vector2( 1210, 548.005 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7, 0.9 ),
+"transitions": PoolRealArray( 2, 1, 2, 1 ),
+"update": 0,
+"values": [ -0.794426, 66.3817, 77.757, 90.9524 ]
+}
+
+[sub_resource type="Animation" id=12]
 length = 1.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Root/ArmR1/ArmR2/ArmR3:position")
@@ -2359,8 +2385,7 @@ tracks/32/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "take_book"
+[sub_resource type="Animation" id=13]
 length = 3.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../Polygons/Body:frame")
@@ -2845,7 +2870,7 @@ tracks/39/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=14]
 resource_name = "take_key"
 length = 11.3
 tracks/0/type = "value"
@@ -3316,8 +3341,32 @@ tracks/38/keys = {
 "method": "screen_shake"
 } ]
 }
+tracks/39/type = "animation"
+tracks/39/path = NodePath("../../../Objects/Key/Anim")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/keys = {
+"clips": PoolStringArray( "fall" ),
+"times": PoolRealArray( 4.7 )
+}
+tracks/40/type = "method"
+tracks/40/path = NodePath("..")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/keys = {
+"times": PoolRealArray( 8.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "put_key_in_inventory"
+} ]
+}
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=15]
 length = 1.7
 loop = true
 tracks/0/type = "value"
@@ -3369,7 +3418,7 @@ tracks/3/keys = {
 "values": [ -174.392, -179.824, -176.663, -174.392, -189.799, -174.392 ]
 }
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 0.560959, 10 )
 
 [node name="Scene" type="Node2D"]
@@ -3387,7 +3436,7 @@ current = true
 script = ExtResource( 2 )
 
 [node name="Anim" type="AnimationPlayer" parent="Camera2D"]
-anims/screen_shake = SubResource( 16 )
+anims/screen_shake = SubResource( 1 )
 
 [node name="scene" type="Sprite" parent="."]
 position = Vector2( 957.37, 538.666 )
@@ -3404,14 +3453,14 @@ position = Vector2( 1670, 560 )
 
 [node name="CollisionShape2D" parent="Points/Point" index="0"]
 position = Vector2( 29.1588, -55.985 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Point2" parent="Points" instance=ExtResource( 4 )]
 position = Vector2( 1370, 560 )
 
 [node name="CollisionShape2D" parent="Points/Point2" index="0"]
 position = Vector2( 10, -18.6269 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Exits" type="Node2D" parent="."]
 __meta__ = {
@@ -3426,7 +3475,7 @@ __meta__ = {
 }
 
 [node name="Navmesh" type="NavigationPolygonInstance" parent="Navigation2D"]
-navpoly = SubResource( 3 )
+navpoly = SubResource( 4 )
 
 [node name="Player" parent="Navigation2D" instance=ExtResource( 6 )]
 editor/display_folded = true
@@ -3472,11 +3521,11 @@ rotation = -3.31262
 rotation = 0.0810737
 
 [node name="HouseAnim" parent="Navigation2D/Player/Skeleton" index="1"]
-anims/drop_book = SubResource( 4 )
-anims/put_book_on_conveyor = SubResource( 5 )
-anims/remove_cover1 = SubResource( 6 )
-anims/take_new_book1 = SubResource( 7 )
-anims/take_new_book2 = SubResource( 8 )
+anims/drop_book = SubResource( 5 )
+anims/put_book_on_conveyor = SubResource( 6 )
+anims/remove_cover1 = SubResource( 7 )
+anims/take_new_book1 = SubResource( 8 )
+anims/take_new_book2 = SubResource( 9 )
 
 [node name="Anim" parent="Navigation2D/Player/Skeleton" index="2"]
 autoplay = ""
@@ -3494,7 +3543,7 @@ speed = 4
 [node name="Zone" parent="Objects/ConveyorBelt" index="0"]
 position = Vector2( 574.021, 0 )
 rotation = 1.57079
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Sprite" parent="Objects/ConveyorBelt" index="1"]
 position = Vector2( 127.595, 0 )
@@ -3515,7 +3564,7 @@ position = Vector2( 31.6436, 1.95361 )
 rotation = -0.0261298
 
 [node name="Anim" parent="Objects/Wires" index="3"]
-anims/default = SubResource( 10 )
+anims/default = SubResource( 11 )
 
 [node name="Grid" parent="Objects" instance=ExtResource( 9 )]
 position = Vector2( 1540, 560 )
@@ -3524,7 +3573,11 @@ player = NodePath("../../Navigation2D/Player")
 connected_point = NodePath("../../Points/Point")
 
 [node name="Key" parent="Objects" instance=ExtResource( 10 )]
-position = Vector2( 1104.19, 240.009 )
+position = Vector2( 1210, 548.005 )
+rotation = 1.58742
+
+[node name="Anim" parent="Objects/Key" index="3"]
+anims/fall = SubResource( 17 )
 
 [node name="BookPile" type="Node2D" parent="Objects"]
 script = ExtResource( 11 )
@@ -3547,10 +3600,11 @@ position = Vector2( 1055, 500 )
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Mom" parent="Characters" instance=ExtResource( 12 )]
-position = Vector2( 981.376, 560.82 )
+position = Vector2( 1045, 555 )
 scale = Vector2( 5, 5 )
 z_index = 1
 book_pile_node = NodePath("../../Objects/BookPile")
+key = NodePath("../../Objects/Key")
 
 [node name="Polygons" parent="Characters/Mom" index="0"]
 editor/display_folded = false
@@ -3565,11 +3619,11 @@ z_index = 1
 z_index = 1
 
 [node name="Body" parent="Characters/Mom/Polygons" index="5"]
-position = Vector2( 3.17426, -23.8503 )
+position = Vector2( 3.17424, -23.8503 )
 
 [node name="Head" parent="Characters/Mom/Polygons" index="6"]
 position = Vector2( 1.60562, -40.7014 )
-rotation = -0.0316942
+rotation = -0.0316941
 scale = Vector2( 0.075, 0.075 )
 
 [node name="Skeleton" parent="Characters/Mom" index="1"]
@@ -3590,11 +3644,9 @@ rotation = 0.0
 
 [node name="ArmL4" parent="Characters/Mom/Skeleton/Root/ArmL1/ArmL2/ArmL3" index="0"]
 rotation = -2.79253
-scale = Vector2( 1, 1 )
 
 [node name="HandL" parent="Characters/Mom/Skeleton/Root/ArmL1/ArmL2/ArmL3/ArmL4" index="0"]
 rotation = -0.150607
-scale = Vector2( 1, 1 )
 
 [node name="ArmR1" parent="Characters/Mom/Skeleton/Root" index="1"]
 position = Vector2( 23.7944, 18.519 )
@@ -3608,39 +3660,34 @@ rotation = 0.0
 
 [node name="ArmR4" parent="Characters/Mom/Skeleton/Root/ArmR1/ArmR2/ArmR3" index="0"]
 rotation = -2.79253
-scale = Vector2( 1, 1 )
 
 [node name="HandR" parent="Characters/Mom/Skeleton/Root/ArmR1/ArmR2/ArmR3/ArmR4" index="0"]
 rotation = -0.436332
-scale = Vector2( 1, 1 )
 
 [node name="LegL" parent="Characters/Mom/Skeleton/Root" index="2"]
 position = Vector2( 0.95225, -5.32015 )
-scale = Vector2( 1, 1 )
 
 [node name="LegR" parent="Characters/Mom/Skeleton/Root" index="3"]
 position = Vector2( 0.0739594, 8.23338 )
-scale = Vector2( 1, 1 )
 
 [node name="Head" parent="Characters/Mom/Skeleton/Root" index="4"]
 position = Vector2( 29.1063, 3.86731 )
 rotation = 0.0555653
-scale = Vector2( 1, 1 )
 
 [node name="HouseAnim" parent="Characters/Mom/Skeleton" index="1"]
-anims/go_back = SubResource( 11 )
-anims/take_book = SubResource( 12 )
-anims/take_key = SubResource( 15 )
+anims/go_back = SubResource( 12 )
+anims/take_book = SubResource( 13 )
+anims/take_key = SubResource( 14 )
 
 [node name="Anim" parent="Characters/Mom/Skeleton" index="2"]
-anims/walk_feet = SubResource( 13 )
+anims/walk_feet = SubResource( 15 )
 
 [node name="ConveyorChecker" parent="Characters/Mom" index="2"]
 position = Vector2( 46.7374, -38.97 )
 
 [node name="CollisionShape2D" parent="Characters/Mom/ConveyorChecker" index="0"]
 position = Vector2( 2.04338, 0 )
-shape = SubResource( 14 )
+shape = SubResource( 16 )
 
 [node name="Overlay" type="CanvasLayer" parent="."]
 layer = 2
@@ -3689,5 +3736,7 @@ __meta__ = {
 [editable path="Objects/ConveyorBelt"]
 
 [editable path="Objects/Wires"]
+
+[editable path="Objects/Key"]
 
 [editable path="Characters/Mom"]

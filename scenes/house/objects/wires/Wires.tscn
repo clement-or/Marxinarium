@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/house/objects/wires/Wires.gd" type="Script" id=1]
 [ext_resource path="res://scenes/house/objects/wires/wires.png" type="Texture" id=2]
+[ext_resource path="res://scenes/house/objects/wires/boitier_ferme.png" type="Texture" id=3]
+[ext_resource path="res://scenes/house/objects/wires/chem1.png" type="Texture" id=4]
+[ext_resource path="res://scenes/house/objects/wires/plaque_ouverte.png" type="Texture" id=5]
+[ext_resource path="res://scenes/house/objects/wires/plaque.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 19.9922
@@ -282,6 +286,16 @@ connected_point = NodePath("../../Points/Point2")
 texture = ExtResource( 2 )
 hframes = 3
 
+[node name="boitier_ferme" type="Sprite" parent="Box"]
+position = Vector2( 62.6326, -9.18079 )
+scale = Vector2( 0.239235, 0.239235 )
+texture = ExtResource( 3 )
+
+[node name="chem1" type="Sprite" parent="Box/boitier_ferme"]
+position = Vector2( 262.082, 68.6138 )
+scale = Vector2( 0.269808, 0.269808 )
+texture = ExtResource( 4 )
+
 [node name="Cover" type="Sprite" parent="."]
 position = Vector2( 53.6447, 155.396 )
 rotation = 0.478516
@@ -303,5 +317,15 @@ anims/cover_fall = SubResource( 2 )
 anims/default = SubResource( 3 )
 anims/wire1 = SubResource( 4 )
 anims/wire2 = SubResource( 5 )
+
+[node name="plaque_ouverte" type="Sprite" parent="."]
+position = Vector2( 269.625, 17.1529 )
+scale = Vector2( 0.343551, 0.343551 )
+texture = ExtResource( 5 )
+
+[node name="plaque" type="Sprite" parent="."]
+position = Vector2( 174.887, 11.7296 )
+scale = Vector2( 0.369696, 0.369696 )
+texture = ExtResource( 6 )
 [connection signal="input_event" from="." to="." method="_on_Wires_input_event"]
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]

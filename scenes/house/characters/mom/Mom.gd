@@ -1,6 +1,7 @@
 extends "res://nodes/objects/Object.gd"
 
 export(NodePath) var book_pile_node
+export(NodePath) var key
 
 onready var area = $ConveyorChecker/CollisionShape2D
 var target
@@ -12,6 +13,8 @@ onready var attach_point = $Skeleton/Root/ArmR1/ArmR2/ArmR3/ArmR4/HandR/Attach
 func _ready():
 	assert(book_pile_node)
 	book_pile_node = get_node(book_pile_node)
+	assert(key)
+	key = get_node(key)
 	
 	states = [
 	{"func": "take_book", "next": 0},
@@ -48,6 +51,17 @@ func put_book_in_inventory():
 	
 	obj.global_position = attach_point.global_position
 	obj.scale = Vector2(.5, .5)
+
+func put_key_in_inventory():
+	# Reparent Book
+	var obj = key
+	obj.global_position = attach_point.global_position
+	obj.scale = Vector2(3,3)
+
+	obj.get_parent().remove_child(obj)
+	set_inventory_content(target)
+	obj.set_owner(inventory)
+	
 
 func drop_book():
 	# Reparent book
